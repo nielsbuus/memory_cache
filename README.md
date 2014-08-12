@@ -58,11 +58,3 @@ Unlike other cache libraries, memory_cache doesn't have a `set` method. Instead 
 MemoryCache does nothing to clean up the cache. Expired values will remain the internal hash of MemoryCache until they are replaced by new invocation with a block.
 
 If your key set is massive or your block return values are fatty, consider calling `clear` on the cache now and then or go for a more advanced caching solution.
-
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/memory_cache/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request

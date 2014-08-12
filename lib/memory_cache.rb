@@ -1,14 +1,14 @@
 # require "memory_cache/version"
 
 class MemoryCache
-  VERSION = "1.0.0"
+  VERSION = "1.0.1"
 
   attr_accessor :ttl_in_seconds, :cache
   private :cache
 
-  def initialize(options = {minutes: 5})
+  def initialize(ttl_options)
     @cache = {}
-    @ttl_in_seconds = calculate_ttl_in_seconds(options)
+    @ttl_in_seconds = calculate_ttl_in_seconds(ttl_options)
   end
 
   def get(key, &block)
@@ -38,7 +38,7 @@ class MemoryCache
     seconds += options.fetch(:minutes, 0) * 60
     seconds += options.fetch(:hours, 0) * 60 * 60
     seconds += options.fetch(:days, 0) * 60 * 60 * 24
-    fail ArgumentError.new("No duration specifieed for cache") if seconds.zero?
+    fail ArgumentError.new("No duration specified for cache") if seconds.zero?
     seconds
   end
 
